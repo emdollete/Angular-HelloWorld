@@ -21,7 +21,7 @@ pipeline {
             publishType: "file",
             filePath: "**/*",
             resourceGroup: "VstsRG-ems-test-ed0a",
-            sourceDirectory: "target"
+            sourceDirectory: "."
             }
         }		
 		    }
