@@ -14,12 +14,15 @@ pipeline {
 			sh 'node_modules/.bin/ng build --prod'
 			}
 			}
-      stage('deploy') {
-      def resourceGroup = 'VstsRG-ems-test-ed0a'
-      def webAppName = 'angular-app-sample'
-      azureWebAppPublish azureCredentialsId: 'springbootapp-sp', publishType: 'file',
-      resourceGroup: resourceGroup, appName: webAppName,
-      filePath: '**/*', sourceDirectory: 'target', targetDirectory: 'webapps'
-              }			
+     stage("Publish to Azure") {
+            steps {
+            azureWebAppPublish appName: "angular-app-sample",
+            azureCredentialsId: "springbootapp-sp",
+            publishType: "file",
+            filePath: "**/*",
+            resourceGroup: "VstsRG-ems-test-ed0a",
+            sourceDirectory: "target"
+            }
+        }		
 		    }
 }
