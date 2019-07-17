@@ -16,7 +16,7 @@ pipeline {
 			}
      stage("Publish to Azure") {
             steps {
-            azureWebAppPublish appName: "angularnewapp",
+            azureWebAppPublish appName: "angularapp-jenkins",
             azureCredentialsId: "springbootapp-sp",
             publishType: "file",
             filePath: "**/*",
